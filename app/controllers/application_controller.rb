@@ -1,19 +1,14 @@
 class ApplicationController < ActionController::Base
     helper_method :logged_in?
+    include SessionsHelper
     
-    def logged_in?
-        !!current_user
-      end  
     
-    def current_user
-        if session[:email]
-          # decoded_token=> [{"user_id"=>2}, {"alg"=>"HS256"}]
-          # or nil if we can't decode the token
-          @user = User.find_by(email: session[:email])
-        end
+    # Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
       end
-
-      def authorized
-        redirect_to controller: 'sessions', action: 'new' unless session[:email]
-      end
-end
+    end
+  end

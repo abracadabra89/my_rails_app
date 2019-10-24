@@ -13,6 +13,7 @@ class User < ApplicationRecord
     validates :email, presence: true, length: { maximum: 255 }, uniqueness: true
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }
+    
   
     # Returns the hash digest of the given string.
     def User.digest(string)
@@ -40,8 +41,22 @@ class User < ApplicationRecord
     def forget
         update_attribute(:remember_digest, nil)
       end
-      private
 
+      def unfollow(other_user)
+        following.delete(other_user)
+    end
+
+  # Returns true if the current user is following the other user.
+    def following?(other_user)
+      following.include?(other_user)
+    end
+
+    def follow(other_user)
+      active_relationships.create(followed_id: other_user.id)
+    end
+
+    
+      private
     # Converts email to all lower-case.
     def downcase_email
       self.email = email.downcase
@@ -61,19 +76,9 @@ class User < ApplicationRecord
       end
 
     # Follows a user.
-    def follow(other_user)
-        following << other_user
-    end
+    
 
   # Unfollows a user.
-    def unfollow(other_user)
-        following.delete(other_user)
-    end
-
-  # Returns true if the current user is following the other user.
-    def following?(other_user)
-        following.include?(other_user)
-    end
-
-      
+    
+    
 end
