@@ -1,6 +1,5 @@
 class MicropostsController < ApplicationController
     
-  
     def create
       @micropost = current_user.microposts.build(micropost_params)
       @micropost.image.attach(params[:micropost][:image])
@@ -20,4 +19,4 @@ class MicropostsController < ApplicationController
     def micropost_params
         params.require(:micropost).permit(:content, :image)
     end
-  end
+end
