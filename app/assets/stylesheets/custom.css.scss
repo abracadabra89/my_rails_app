@@ -68,16 +68,18 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: pink;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: pink;
     text-decoration: none;
   }
 }
+
+
 
 /* footer */
 
@@ -87,7 +89,7 @@ footer {
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
   a {
-    color: $gray;
+    color: $gray-light;
     &:hover {
       color: $gray-darker;
     }
@@ -107,13 +109,7 @@ footer {
 
 /* miscellaneous */
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
+
 
 /* sidebar */
 
@@ -289,4 +285,76 @@ span.image {
   input {
     border: 0;
   }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.button {
+	text-decoration: none;
+	float: right;
+  padding: 12px;
+  margin: 15px;
+  color: white;
+  width: 25px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 10vw;
+}
+
+#nc {
+  width: 60vw;
+  position: absolute;
+  top: 30px;
+  left: 20%;
+  animation: spiral-in 2s;
+}
+
+a {
+  transition: color 4s;
+}
+
+a:hover {
+  color: black;
+}
+
+@keyframes spiral-in {
+  0% {left: -100%; transform: rotateY(0deg); filter: invert(0);}
+  50% {left: 100%; transform: rotateY(360deg); filter: invert(0.5)}
+  100% {left: 20%; transform: rotateY(720deg); filter: invert(1)}
 }

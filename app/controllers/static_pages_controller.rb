@@ -7,16 +7,7 @@ class StaticPagesController < ApplicationController
     end
   end
   
-  def about
-  end
 
-  def logout
-  end
-
-  def help
-  end
   
-  def contact
-  end
   
 end

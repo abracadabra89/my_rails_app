@@ -18,18 +18,37 @@
   </div>
 <% else %>
 <div class="center jumbotron">
-  <h1>Welcome to the Posty App</h1>
-
-  <h2>
-    This is the home page for Posty App
-    <a href="https://www.learn.co/">Learn to code</a>
-    
-  </h2>
-
+<h1 style="font-size: 7em; color: blue; font-family: 'Playfair Display', serif;" >Welcome to the Posty App</h1>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <main style="position: relative;">
+    </main>
 </div>
 
-<%= link_to image_tag("kitten.jpg", alt: "Kitten", width: "200px"),
-"https://www.learn.co/" %>
+<img src="/assets/kitten1.jpg" class="rounded float-left" alt="...">
+<img src="/assets/kitten2.jpg" class="rounded float-right" alt="...">
+
+
+<style media="screen">
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: pink;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+        display: grid;
+        /* z-index: 1; */
+      }
+      nav a {
+        text-align: center;
+        color: white;
+      }
+      img {
+        width: 28vw;
+        align: center;
+      }
+
+
+
 
 <% end %>
